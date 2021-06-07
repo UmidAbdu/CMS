@@ -35,7 +35,7 @@ include "includes/header.php";
                 if($count == 0){
                     echo "<h1> NO RESULTS</h1>";
                 } else{
-                    echo "<h1>SOME RESULT</h1>";
+                    echo "<h1>RESULTS</h1>";
                 }
             }
 
