@@ -1,6 +1,6 @@
 <?php include "includes/admin_header.php";
 include "../includes/db.php";
-
+include "../functions.php";
 ?>
 
 <body>
@@ -25,26 +25,7 @@ include "../includes/db.php";
 
                     <div class="col-xs-6">
                         <?php
-                        if(isset($_POST['submit'])){
-                            $cat_title = $_POST['cat_title'];
-                            if($cat_title == "" or empty($cat_title)){
-
-                                echo "This field should not be empty";
-
-                            } else{
-
-                                $query = "INSERT INTO categories(cat_title) ";
-                                $query .= "VALUE('{$cat_title}') ";
-                                $create_category = mysqli_query($connection, $query);
-
-                                if(!$create_category){
-
-                                    die('QUERY FAILED' . mysqli_error($connection));
-
-                                }
-                            }
-                        }
-
+                        inserting_categories(); //function to inserting data
                         ?>
                         <form action="" method="post">
                             <div class="form-group">
@@ -54,8 +35,14 @@ include "../includes/db.php";
                             <div class="form-group">
                                 <input class="btn btn-primary" type="submit" name="submit" value="Add Categories">
                             </div>
-                        </form>
-                    </div> <!-- Add Category Form -->
+                        </form> <!-- Add Category Form -->
+
+                        <?php if(isset($_GET['edit'])){
+                            $cat_id = $_GET['edit'];
+                            include "includes/update_categories.php";
+                        } ?>
+
+                    </div>
 
                     <div class="col-xs-6">
                     <table class="table table-bordered table-hover">
@@ -64,6 +51,7 @@ include "../includes/db.php";
                             <th>ID</th>
                             <th>Title</th>
                             <th>Delete</th>
+                            <th>Edit</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -80,6 +68,7 @@ include "../includes/db.php";
                             <td><?=$cat_id?></td>
                             <td><?=$cat_title?></td>
                             <td><a href='categories.php?delete=<?=$cat_id?>'>Delete</a></td>
+                            <td><a href='categories.php?edit=<?=$cat_id?>'>Edit</a></td>
                         </tr>
                             <?php
 } //closing tag
@@ -105,5 +94,5 @@ include "../includes/db.php";
 
                 </div>
             </div>
-<?php include "includes/admin_footer.php";
+<?php include "includes/admin_footer.php";?>
 
