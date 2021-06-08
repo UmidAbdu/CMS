@@ -1,13 +1,15 @@
-<?php include "../admin/includes/header.php"?>
+<?php include "includes/admin_header.php";
+include "../includes/db.php";
+
+?>
+
 <body>
 
 <div id="wrapper">
 
-    <?php if($connection) echo "hell yeah" ?>
-
     <!-- Navigation -->
 
-    <?php include "../admin/includes/navigation.php"?>
+    <?php include "includes/admin_navigation.php" ?>
 
     <div id="page-wrapper">
 
@@ -20,33 +22,75 @@
                         Welcome to Admin Page
                         <small>Author</small>
                     </h1>
-                    <ol class="breadcrumb">
-                        <li>
-                            <i class="fa fa-dashboard"></i>  <a href="index.php">Dashboard</a>
-                        </li>
-                        <li class="active">
-                            <i class="fa fa-file"></i> Blank Page
-                        </li>
-                    </ol>
+
+                    <div class="col-xs-6">
+                        <?php
+                        if(isset($_POST['submit'])){
+                            $cat_title = $_POST['cat_title'];
+                            if($cat_title == "" or empty($cat_title)){
+
+                                echo "This field should not be empty";
+
+                            } else{
+
+                                $query = "INSERT INTO categories(cat_title) ";
+                                $query .= "VALUE('{$cat_title}') ";
+                                $create_category = mysqli_query($connection, $query);
+
+                                if(!$create_category){
+
+                                    die('QUERY FAILED' . mysqli_error($connection));
+
+                                }
+                            }
+                        }
+
+                        ?>
+                        <form action="" method="post">
+                            <div class="form-group">
+                                <label for="cat-title">Add Category</label>
+                                <input type="text" class="form-control" name="cat_title">
+                            </div>
+                            <div class="form-group">
+                                <input class="btn btn-primary" type="submit" name="submit" value="Add Categories">
+                            </div>
+                        </form>
+                    </div> <!-- Add Category Form -->
+                    <?php
+                    $query = "SELECT * FROM categories";
+                    $select_categories = mysqli_query($connection, $query)
+                    ?>
+
+                    <div class="col-xs-6">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <?php
+                            while ($row = mysqli_fetch_assoc($select_categories)){
+                                $cat_id = $row['cat_id'];
+                                $cat_title = $row['cat_title'];
+                            ?>
+                                    <tr>
+                            <td><?=$cat_id?></td>
+                            <td><?=$cat_title?></td>
+                        </tr>
+                            <?php
+} //closing tag
+?>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
+
+
+
                 </div>
             </div>
-            <!-- /.row -->
+<?php include "includes/admin_footer.php";
 
-        </div>
-        <!-- /.container-fluid -->
-
-    </div>
-    <!-- /#page-wrapper -->
-
-</div>
-<!-- /#wrapper -->
-
-<!-- jQuery -->
-<script src="js/jquery.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-
-</body>
-
-</html>

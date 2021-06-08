@@ -1,11 +1,11 @@
-<?php include "includes/header.php"?>
+<?php include "includes/admin_header.php"?>
 <body>
 
     <div id="wrapper">
 
         <!-- Navigation -->
 
-        <?php include "includes/navigation.php"?>
+        <?php include "includes/admin_navigation.php"?>
 
         <div id="page-wrapper">
 
@@ -18,33 +18,8 @@
                             Welcome to Admin Page
                             <small>Author</small>
                         </h1>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.php">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i> Blank Page
-                            </li>
-                        </ol>
+
                     </div>
                 </div>
-                <!-- /.row -->
 
-            </div>
-            <!-- /.container-fluid -->
-
-        </div>
-        <!-- /#page-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-</body>
-
-</html>
+                <?php include "includes/admin_footer.php";
