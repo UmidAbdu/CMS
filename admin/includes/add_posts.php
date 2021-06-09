@@ -58,11 +58,6 @@ if(isset($_POST['create_post'])){
     </div>
 
     <div class="form-group">
-        <label for="post_content">Post Content</label>
-        <input type="text" class="form-control" name="post_content">
-    </div>
-
-    <div class="form-group">
         <label for="post_image">Post Image</label>
         <input type="file" class="form-control" name="image">
     </div>
@@ -71,6 +66,11 @@ if(isset($_POST['create_post'])){
     <div class="form-group">
         <label for="post_tags">Post Tags</label>
         <input type="text" class="form-control" name="post_tags">
+    </div>
+
+    <div class="form-group">
+        <label for="post_content">Post Content</label>
+        <textarea class="form-control" name="post_content" id="" cols="30" rows="10"></textarea>
     </div>
 
 

@@ -37,8 +37,8 @@ include "../functions.php";
                             include "includes/add_posts.php";
                             break;
 
-                        case '100';
-                            echo "nice 100";
+                        case 'edit_posts';
+                            include "includes/edit_posts.php";
                             break;
 
                         case '200';

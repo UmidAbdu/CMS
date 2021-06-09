@@ -43,6 +43,8 @@
         <td><?=$post_tags?></td>
         <td><?=$post_comments?></td>
         <td><?=$post_date?></td>
+        <td><a href="posts.php?delete=<?=$post_id?>">Delete</a></td>
+        <td><a href="posts.php?source=edit_posts&p_id=<?=$post_id?>">Edit</a></td>
     </tr>
     <?php
     }
@@ -50,3 +52,22 @@
     </tr>
     </tbody>
 </table>
+
+<?php
+
+if(isset($_GET['delete'])){
+
+    $the_post_id = $_GET['delete'];
+    $query = "DELETE FROM posts WHERE post_id = {$the_post_id}";
+    $delete_posts_query = mysqli_query($connection, $query);
+
+    header("Location:posts.php");
+
+    if(!$delete_posts_query){
+        die('QUERY FAILED' . mysqli_error($connection));
+    }
+}
+
+
+
+?>
