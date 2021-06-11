@@ -22,6 +22,10 @@ include "includes/header.php";
 
             <?php
 
+            if(isset($_GET['p_id'])){
+                $the_post_id = $_GET['p_id'];
+            }
+
             //querying database
             $query = "SELECT * FROM posts";
             $select_all_posts_query = mysqli_query($connection, $query);
@@ -56,6 +60,7 @@ include "includes/header.php";
                 <hr>
 
             <?php } ?>
+
 
 
             <!-- Blog Comments -->
@@ -113,6 +118,9 @@ include "includes/header.php";
                     <!-- End Nested Comment -->
                 </div>
             </div>
+
+
+
 
 
             <hr>
