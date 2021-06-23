@@ -108,11 +108,11 @@ if(isset($_GET['unapprove'])){
 
     $the_comment_id = $_GET['unapprove'];
     $query = "UPDATE comments SET comment_status = 'unapproved' WHERE comment_id = {$the_comment_id}";
-    $approve_comment_query = mysqli_query($connection, $query);
+    $unapprove_comment_query = mysqli_query($connection, $query);
 
     header("Location:comments.php");
 
-    if(!$approve_comment_query){
+    if(!$unapprove_comment_query){
         die('QUERY FAILED' . mysqli_error($connection));
     }
 }

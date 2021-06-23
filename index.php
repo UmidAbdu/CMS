@@ -23,7 +23,7 @@ include "includes/header.php";
                 <?php
 
                 //querying database
-                $query = "SELECT * FROM posts";
+                $query = "SELECT * FROM posts WHERE post_status = 'published'";
                 $select_all_posts_query = mysqli_query($connection, $query);
 
                 while($row = mysqli_fetch_assoc($select_all_posts_query)){
@@ -34,6 +34,13 @@ include "includes/header.php";
                     $post_date = $row['post_date'];
                     $post_image = $row['post_image'];
                     $post_content = substr($row['post_content'],0,100);
+                    $post_status = $row['post_status'];
+
+                    if($post_status !== 'published'){
+                        echo "<h1>NO POSTS YET</h1>";
+                    }
+                    else {
+
                     ?>
                     <h1 class="page-header">
                     Page Heading
@@ -56,7 +63,7 @@ include "includes/header.php";
 
                 <hr>
 
-                <?php } ?>
+                <?php } } ?>
 
 
                 <hr>
