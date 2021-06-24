@@ -12,7 +12,7 @@
         <td>Comments</td>
         <td>Date</td>
         <td>Edit</td>
-        <td><Delete></Delete></td>
+        <td>Delete</td>
     </tr>
     </thead>
     <tbody>
