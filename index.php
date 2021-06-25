@@ -42,11 +42,6 @@ include "includes/header.php";
                     else {
 
                     ?>
-                    <h1 class="page-header">
-                    Page Heading
-                    <small>Secondary Text</small>
-                </h1>
-
                 <!-- First Blog Post -->
                 <h2>
                     <a href="post.php?p_id=<?=$post_id?>"><?=$post_title?></a>

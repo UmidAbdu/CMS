@@ -37,7 +37,7 @@
             </li>
 
             <li>
-                <a href="javascript:;" data-toggle="collapse" data-target="#posts_dropdown"><i class="fa fa-fw fa-arrows-v"></i> Posts <i class="fa fa-fw fa-caret-down"></i></a>
+                <a href="javascript:;" data-toggle="collapse" data-target="#posts_dropdown"><i class="fa fa-fw fa-file-text"></i> Posts <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="posts_dropdown" class="collapse">
                     <li>
                         <a href="../../admin/posts.php">View All Posts</a>
@@ -48,15 +48,15 @@
                 </ul>
             </li>
             <li>
-                <a href="../../admin/categories.php"><i class="fa fa-fw fa-wrench"></i> Categories </a>
+                <a href="../../admin/categories.php"><i class="fa fa-fw fa-list-alt"></i> Categories </a>
             </li>
 
             <li class="active">
-                <a href="../../admin/comments.php"><i class="fa fa-fw fa-file"></i> Comments </a>
+                <a href="../../admin/comments.php"><i class="fa fa-fw fa-comments"></i> Comments </a>
             </li>
 
             <li>
-                <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
+                <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-users"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="demo" class="collapse">
                     <li>
                         <a href="users.php">View all users</a>
@@ -67,7 +67,7 @@
                 </ul>
             </li>
             <li>
-                <a href="profile.php"><i class="fa fa-fw fa-dashboard"></i> Profile </a>
+                <a href="profile.php"><i class="fa fa-fw fa-user"></i> Profile </a>
             </li>
         </ul>
     </div>
