@@ -60,6 +60,8 @@ if(isset($_POST['update_post'])){
         die('QUERY FAILED ' . mysqli_error($connection));
     }
 
+    echo "Post edited";
+
 }
 ?>
 
@@ -104,8 +106,18 @@ if(isset($_POST['update_post'])){
     </div>
 
     <div class="form-group">
-        <label for="post_status">Post Status</label>
-        <input type="text" value="<?=$post_status?>" class="form-control" name="post_status">
+        <label for="post_status">Post status</label>
+        <select name="post_status" id="">
+            <option value="published"><?=$post_status?></option>
+            <?php
+            if ($post_status == 'published'){
+                echo "<option value='draft'>draft</option>";
+            } else {
+                echo "<option value='published'>published</option>";
+            }
+            ?>
+
+        </select>
     </div>
 
     <div class="form-group">
@@ -123,8 +135,17 @@ if(isset($_POST['update_post'])){
 
     <div class="form-group">
         <label for="post_content">Post Content</label>
-        <textarea class="form-control"  name="post_content" id="" cols="30" rows="10"><?=$post_content?></textarea>
+        <textarea class="form-control"  name="post_content" id="editor" cols="30" rows="10"><?=$post_content?></textarea>
     </div>
+
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+
+    </script>
 
     <div class="form-group">
         <input type="submit" class="btn btn-primary" name="update_post" value="Update post">

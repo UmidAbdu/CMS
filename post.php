@@ -1,5 +1,4 @@
 
-
 <?php
 //Database connection
 include "includes/db.php";
@@ -55,7 +54,6 @@ include "includes/header.php";
                 <img class="img-responsive" src="images/<?=$post_image?>" alt="">
                 <hr>
                 <p><?=$post_content?></p>
-                <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
                 <hr>
 

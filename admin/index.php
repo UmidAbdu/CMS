@@ -156,10 +156,22 @@ include "../includes/db.php";
 
                     <?php
 
-                    $element_text = ['Active Posts', 'Comments', 'Users', 'Categories' ];
-                    $element_count = [$post_counts,$comment_counts, $user_counts, $category_counts ];
+                    $query = "SELECT * FROM posts WHERE post_status = 'draft'";
+                    $select_all_draft_posts = mysqli_query($connection, $query);
+                    $draft_post_count = mysqli_num_rows($select_all_draft_posts);
 
-                    for($i= 0; $i < 4; $i++){
+                    $query = "SELECT * FROM comments WHERE comment_status = 'unapproved'";
+                    $select_all_unapproved_comments = mysqli_query($connection, $query);
+                    $unapproved_comment_count = mysqli_num_rows($select_all_unapproved_comments);
+
+                    $query = "SELECT * FROM users WHERE user_role = 'subscriber'";
+                    $select_all_subscribers = mysqli_query($connection, $query);
+                    $subscriber_count = mysqli_num_rows($select_all_subscribers);
+
+                    $element_text = ['Active Posts', 'Draft Posts', 'Comments', 'Unapproved posts', 'Users', 'Subscribers', 'Categories' ];
+                    $element_count = [$post_counts,$draft_post_count, $comment_counts, $unapproved_comment_count,  $user_counts, $subscriber_count, $category_counts ];
+
+                    for($i= 0; $i < 6; $i++){
                         echo "['{$element_text[$i]}'" . "," . "{$element_count[$i]}],";
                     }
 

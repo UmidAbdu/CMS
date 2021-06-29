@@ -27,13 +27,12 @@ if(isset($_POST['create_post'])){
     if(!$send_query){
         die('QUERY FAILED' . mysqli_error($connection));
     }
+
+    echo "Post successfully created: ". "<a href='posts.php'>View Posts</a>";
+
 }
 
 ?>
-
-
-
-
 
 <form action="" method="post" enctype="multipart/form-data">
 
@@ -76,8 +75,14 @@ if(isset($_POST['create_post'])){
     </div>
 
     <div class="form-group">
-        <label for="post_status">Post Status</label>
-        <input type="text" class="form-control" name="post_status">
+        <label for="post_status">Post status</label>
+        <select name="post_status" id="">
+
+            <option value="draft">Select options</option>
+            <option value="published">Published</option>
+            <option value="draft">Draft</option>
+
+        </select>
     </div>
 
     <div class="form-group">
@@ -93,8 +98,16 @@ if(isset($_POST['create_post'])){
 
     <div class="form-group">
         <label for="post_content">Post Content</label>
-        <textarea class="form-control" name="post_content" id="" cols="30" rows="10"></textarea>
+        <textarea class="form-control" name="post_content" id="editor" cols="30" rows="20"></textarea>
     </div>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+
+    </script>
 
 
     <div class="form-group">

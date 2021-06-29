@@ -23,3 +23,8 @@ function inserting_categories(){
         }
     }
 }
+
+
+function escape($string){
+
+}
