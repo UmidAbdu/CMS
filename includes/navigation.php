@@ -15,6 +15,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <?php
+                session_start();
                 $query = "SELECT * FROM categories";
                 $select_all_categories_query = mysqli_query($connection, $query);
 
@@ -29,6 +30,15 @@
                 <li>
                     <a href="admin/index.php">Admin</a>
                 </li>
+
+                <?php
+                if(isset($_SESSION['user_role'])){
+                    if(isset($_GET['p_id'])) {
+                        $the_post_id = $_GET['p_id'];
+                        echo "<li><a href='../admin/posts.php?source=edit_posts&p_id={$the_post_id}'>Edit Post</a></li>";
+                    }
+                }
+                ?>
                 <!--
                 <li>
                     <a href="#">Services</a>

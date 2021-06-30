@@ -9,7 +9,8 @@ include "includes/header.php";
 ?>
 
     <!-- Navigation -->
-<?php include "includes/navigation.php"; ?>
+<?php include "includes/navigation.php";
+?>
 
 
     <!-- Page Content -->
@@ -51,10 +52,12 @@ include "includes/header.php";
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> Posted on <?=$post_date?></p>
                 <hr>
+                        <a href="post.php?p_id=<?=$post_id?>">
                 <img class="img-responsive" src="images/<?=$post_image?>" alt="">
+                        </a>
                 <hr>
                 <p><?=$post_content?></p>
-                <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a class="btn btn-primary" href="post.php?p_id=<?=$post_id?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
                 <hr>
 
