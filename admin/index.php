@@ -168,7 +168,7 @@ include "../includes/db.php";
                     $select_all_subscribers = mysqli_query($connection, $query);
                     $subscriber_count = mysqli_num_rows($select_all_subscribers);
 
-                    $element_text = ['Active Posts', 'Draft Posts', 'Comments', 'Unapproved posts', 'Users', 'Subscribers', 'Categories' ];
+                    $element_text = ['Active Posts', 'Draft Posts', 'Comments', 'Unapproved comments', 'Users', 'Subscribers', 'Categories' ];
                     $element_count = [$post_counts,$draft_post_count, $comment_counts, $unapproved_comment_count,  $user_counts, $subscriber_count, $category_counts ];
 
                     for($i= 0; $i < 6; $i++){
